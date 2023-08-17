@@ -33,3 +33,27 @@ function greeting(name, greet) {
     return;
 }
 greeting("Pedro", "Sir");
+/*//string, boolean, number...
+let teste: number = 10;
+let texto: string = "uai";
+let bool: Boolean = true;
+//teste p "Olá";
+console.log(teste, texto, bool);
+
+const myNumber:number[] = [1,2,3]
+console.log(myNumber.length)
+
+const myString:string[] = ["cala","a boca", "Puta"]
+console.log(myString.length)
+
+let myTuple:[string, number[], Boolean[]] = ["aiaiaia",[1,2], [true,false]]
+console.log(myTuple)
+
+//object literals
+let myObj:{name:string, age:number[], employer:[boolean, string]} = {
+    name: "Joau",
+    age: [59,17],
+    employer: [true, "pedreiro"]
+}
+console.log(myObj)
+*/ 

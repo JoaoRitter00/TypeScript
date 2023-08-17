@@ -2,7 +2,7 @@
 let myInfo = {
     nome: "Gabriel",
     idade: 22,
-    salario: 500,
+    salario: 1780,
     sexo: "m",
     estadoCivil: "s"
 };
@@ -22,17 +22,27 @@ function ValidarInfo(info) {
     function validarEstadoCivil(estadoCivil) {
         return ['s', 'c', 'v', 'd'].includes(estadoCivil);
     }
-    const { nome, idade, salario, sexo, estadoCivil } = info;
-    return (validarNome(nome),
-        validarIdade(idade),
-        validarSalario(salario),
-        validarSexo(sexo),
-        validarEstadoCivil(estadoCivil));
+    if (!validarNome(info.nome)) {
+        return "Nome inválido";
+    }
+    if (!validarIdade(info.idade)) {
+        return "Idade inválida";
+    }
+    if (!validarSalario(info.salario)) {
+        return "Salário inválido";
+    }
+    if (!validarSexo(info.sexo)) {
+        return "Sexo inválido";
+    }
+    if (!validarEstadoCivil(info.estadoCivil)) {
+        return "Estado civil inválido";
+    }
+    return null;
 }
-const { nome, idade, salario, sexo, estadoCivil } = myInfo;
-if (ValidarInfo(myInfo)) {
-    console.log(`O nome: ${myInfo.nome}, idade: ${myInfo.idade} anos, salário: R$${myInfo.salario},00 reais, sexo: ${myInfo.sexo} e estado civil: ${myInfo.estadoCivil}, todas as informações são válidas.Obrigado!`);
+const erro = ValidarInfo(myInfo);
+if (erro) {
+    console.log(`Erro: ${erro}. Por favor, verifique os dados`);
 }
 else {
-    console.log('Alguma informação é inválida. Por favor, verifique os dados.');
+    console.log(`O nome: ${myInfo.nome}, idade: ${myInfo.idade} anos, salário: R$${myInfo.salario},00 reais, sexo: ${myInfo.sexo} e estado civil: ${myInfo.estadoCivil}, todas as informações são válidas.Obrigado!`);
 }
