@@ -22,46 +22,55 @@ let myObj:{name:string, age:number[], employer:[boolean, string]} = {
 }
 console.log(myObj)
 */
-let register: { nome: string, age: number, salario: number, sexo: string, estado: string } = {
-    nome: "Joau",
-    age: 17,
-    salario: 1280,
-    sexo: "a",
-    estado: "s"
+type Info = {
+    nome: string,
+    idade: number,
+    salario: number,
+    sexo: "m" | "f",
+    estadoCivil: 's' | 'c' | 'v' | 'd'
 }
-if (register.nome.length > 3) {
-    if (register.age > 0 && register.age <= 150) {
-        if (register.salario > 0) {
-            if (register.sexo == "m") {
-                if (register.estado == 's') {
-                    console.log(register.nome, register.age, register.salario, "masculino", "solteiro")
-                }
-                else if (register.estado == 'c') {
-                    console.log(register.nome, register.age, register.salario, "masculino", "casado")
-                }
-                else if (register.estado == 'v') {
-                    console.log(register.nome, register.age, register.salario, "masculino", "viuvo")
-                }
-                else if (register.estado == 'd') {
-                    console.log(register.nome, register.age, register.salario, "masculino", "divorciado")
-                }
-                else { console.log("estado civil invalido") }
-            }
-            else if (register.sexo == "f") {
-                if (register.estado == 's') {
-                    console.log(register.nome, register.age, register.salario, "feminino", "solteira")
-                }
-                else if (register.estado == 'c') {
-                    console.log(register.nome, register.age, register.salario, "feminino", "casada")
-                }
-                else if (register.estado == 'v') {
-                    console.log(register.nome, register.age, register.salario, "feminino", "viuva")
-                }
-                else if (register.estado == 'd') {
-                    console.log(register.nome, register.age, register.salario, "feminino", "divorciada")
-                }
-                else { console.log("estado civil invalido") }
-            } else { console.log("sexo invalido") }
-        } else { console.log("iiiiih mó pobre") }
-    } else { console.log("idade invalida") }
-} else { console.log("nome invalido") }
+let myInfo: Info = {
+    nome: "Gabriel",
+    idade: 22,
+    salario: 500,
+    sexo: "m",
+    estadoCivil: "s"
+}
+function ValidarInfo(info: Info): boolean {
+    function validarNome(nome: string): boolean {
+        return nome.length > 3;
+    }
+
+    function validarIdade(idade: number): boolean {
+        return idade >= 0 && idade <= 150;
+    }
+
+    function validarSalario(salario: number): boolean {
+        return salario > 0;
+    }
+
+    function validarSexo(sexo: string): boolean {
+        return sexo === 'f' || sexo === 'm';
+    }
+
+    function validarEstadoCivil(estadoCivil: string): boolean {
+        return ['s', 'c', 'v', 'd'].includes(estadoCivil);
+
+    }
+    const { nome, idade, salario, sexo, estadoCivil } = info
+    return (
+        validarNome(nome),
+        validarIdade(idade),
+        validarSalario(salario),
+        validarSexo(sexo),
+        validarEstadoCivil(estadoCivil)
+    )
+}
+
+const { nome, idade, salario, sexo, estadoCivil } = myInfo
+
+if (ValidarInfo(myInfo)) {
+    console.log(`O nome: ${myInfo.nome}, idade: ${myInfo.idade} anos, salário: R$${myInfo.salario},00 reais, sexo: ${myInfo.sexo} e estado civil: ${myInfo.estadoCivil}, todas as informações são válidas.Obrigado!`);
+} else {
+    console.log('Alguma informação é inválida. Por favor, verifique os dados.');
+}
