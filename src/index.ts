@@ -3,7 +3,7 @@ enum cor {
     p = "preto",
     a = "azul"
 }
-const camisa = {
+/*const camisa = {
     name:"Camisa gola V",
     size: cor.p
 }
@@ -42,7 +42,7 @@ interface MathFunctionParams{ //focado em parametros para funções
     n1: number,
     n2: number
 }
-
+*/
 
 
 /*//string, boolean, number...

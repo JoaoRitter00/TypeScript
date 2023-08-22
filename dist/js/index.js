@@ -5,34 +5,46 @@ var cor;
     cor["p"] = "preto";
     cor["a"] = "azul";
 })(cor || (cor = {}));
-const camisa = {
-    name: "Camisa gola V",
+/*const camisa = {
+    name:"Camisa gola V",
     size: cor.p
-};
-console.log(camisa);
+}
+console.log(camisa)
+
 //literal types
-let teste1;
-teste1 = "autenticado";
-teste1 = null;
-var vamosVer = "Ola";
+let teste1 : "autenticado" | null;
+teste1 = "autenticado"
+teste1 = null
+
+var vamosVer:string = "Ola";
 //funcao
-function soma(a, b) {
-    return `Olá Manu essa é a soma:${+a + b}`;
+function soma(a:number, b:number):string | number{
+    return `Olá Manu essa é a soma:${+a+b}`;
 }
-console.log(soma(12, 12));
-function sayHello(name) {
-    return `Hello ${name}`;
+console.log(soma(12,12));
+
+function sayHello(name:string):string{
+    return `Hello ${name}`
 }
-function greeting(name, greet) {
-    if (greet) {
-        console.log(`Olá ${name}${greet}`);
+
+function greeting(name:string, greet?:string){
+    if(greet){
+        console.log(`Olá ${name}${greet}`)
     }
-    else {
-        console.log(`Olá ${name}`);
+    else{
+        console.log(`Olá ${name}`)
     }
-    return;
+    return
 }
-greeting("Pedro", "Sir");
+greeting("Pedro", "Sir")
+
+
+//interface
+interface MathFunctionParams{ //focado em parametros para funções
+    n1: number,
+    n2: number
+}
+*/
 /*//string, boolean, number...
 let teste: number = 10;
 let texto: string = "uai";
